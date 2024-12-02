@@ -11,7 +11,7 @@ import { animationVariants } from "@/app/configs/animation";
 const PortfolioTeachStack: React.FC = () => {
   return (
     <Section background={Background.GRAY}>
-      <div className={Styles["tech-stack-container"]}>
+      <div className={Styles["tech-stack-container"]} id="tech-stack">
         <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
           Tech Stack
         </Title>
@@ -19,7 +19,7 @@ const PortfolioTeachStack: React.FC = () => {
           className={Styles["grid-container"]}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }} // Ensures the animation only triggers when visible
+          viewport={{ once: true, amount: 0.3 }}
           variants={{
             visible: {
               transition: { staggerChildren: 0.05 },

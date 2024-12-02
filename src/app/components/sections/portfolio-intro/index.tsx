@@ -37,7 +37,7 @@ const PortfolioIntro = () => {
   useGenerateText(setDynamicHeadingText);
   return (
     <Section background={Background.PRIMARY_GRADIENT}>
-      <div className={Styles["section-container"]}>
+      <div className={Styles["section-container"]} id="home">
         <div className={Styles["section-fragment"]}>
           <Title
             size="medium"

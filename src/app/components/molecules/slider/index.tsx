@@ -38,7 +38,7 @@ const Navigation = () => (
     }}
   >
     {IN_PAGE_LINKS.map(({ href, name }) => (
-      <NavItem key={name} name={name} />
+      <NavItem key={name} name={name} href={href} />
     ))}
   </motion.ul>
 );

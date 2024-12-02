@@ -30,7 +30,7 @@ const timelineData = [
 
 const Timeline = () => {
   return (
-    <div className={Styles["timeline-container"]}>
+    <div className={Styles["timeline-container"]} id="work-experience">
       <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
         Work Experience
       </Title>
