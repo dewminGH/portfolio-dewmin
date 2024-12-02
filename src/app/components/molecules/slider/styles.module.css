@@ -1,0 +1,82 @@
+.nav {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 500px;
+}
+
+.background {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 500px;
+  background: #ffffff;
+}
+
+.button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  z-index: 2;
+  top: 60px;
+  left: 60px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: transparent;
+}
+
+.menuItem {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.iconPlaceholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.textPlaceholder {
+  border-radius: 5px;
+  width: 500px;
+  height: 20px;
+  margin-left: 20px;
+}
+
+/* responsive settings */
+
+@media only screen and (max-width: 768px) {
+  .button {
+    z-index: 2;
+    top: 20px;
+    left: 20px;
+  }
+
+  .nav {
+    width: 100%;
+  }
+
+  .background {
+    width: 100%;
+  }
+
+  .textPlaceholder {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1440px) {
+  .button {
+    z-index: 2;
+    top: 40px;
+    left: 40px;
+  }
+}

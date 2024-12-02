@@ -1,0 +1,18 @@
+:root {
+  --primary-color-gradient: linear-gradient(
+    90deg,
+    hsla(311, 74%, 87%, 1) 0%,
+    hsla(275, 19%, 88%, 1) 100%
+  );
+  --primary-color-gradient-dark: hsla(293, 46.5%, 85%, 1);
+
+  --primary-color-gradient-text: linear-gradient(
+    90deg,
+    #6a6cff 0%,
+    #bd71ff 100%
+  );
+  --text-color-purple: #6a6cff;
+  --text-color-pink: #bd71ff;
+  --perfect-black: #353535;
+  --gray-low-text: #d0cdcd;
+}

@@ -1,0 +1,4 @@
+export { default as Title } from "./title";
+export { default as FaIcon } from "./icons";
+export { default as Arrow } from "./arrow";
+export type { FontVariant, FontSize } from "./title/type";
