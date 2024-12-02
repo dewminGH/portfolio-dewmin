@@ -1,15 +1,19 @@
 import "./theme/theme.css";
 import "./styles.css";
-import { Navbar, PortfolioLandingIntro } from "./components";
+import {
+  Navbar,
+  PortfolioIntro,
+  PortfolioTeachStack,
+  PortFolioWork,
+} from "./components";
 
 const PortfolioLandingPage: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <PortfolioLandingIntro />
-      <div style={{ height: "100svh", width: "100%", background: "red" }}>
-        Section 2 On the WAy
-      </div>
+      <PortfolioIntro />
+      <PortfolioTeachStack />
+      <PortFolioWork />
     </div>
   );
 };

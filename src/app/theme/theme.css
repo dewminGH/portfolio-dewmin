@@ -15,4 +15,6 @@
   --text-color-pink: #bd71ff;
   --perfect-black: #353535;
   --gray-low-text: #d0cdcd;
+  --primary-color-gray: rgb(226, 226, 226);
+  --primary-color-gray-dark: rgb(207, 205, 205);
 }

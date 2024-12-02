@@ -7,6 +7,7 @@ import { FaIcon } from "../../atoms";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
 import { useEffect, useState } from "react";
+import { IN_PAGE_LINKS } from "@/app/configs/route.config";
 
 const sidebarVariants = {
   open: {
@@ -30,23 +31,18 @@ const sidebarVariants = {
 
 const Navigation = () => (
   <motion.ul
-    style={{
-      padding: "25px",
-      position: "fixed",
-      zIndex: 2,
-      top: "100px",
-      width: "230px",
-    }}
+    className={Styles["nav-item-container"]}
     variants={{
       open: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
       closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
     }}
   >
-    {[0, 1, 2, 3, 4].map((i) => (
-      <NavItem key={i} />
+    {IN_PAGE_LINKS.map(({ href, name }) => (
+      <NavItem key={name} name={name} />
     ))}
   </motion.ul>
 );
+
 const getClosedClipPath = () => {
   if (typeof window !== "undefined") {
     if (window.matchMedia("(max-width: 768px)").matches) {

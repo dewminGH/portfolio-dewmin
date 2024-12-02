@@ -15,17 +15,23 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons/faFacebook";
 import { faSteam } from "@fortawesome/free-brands-svg-icons/faSteam";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
 import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons/faEnvelopeOpenText";
+import Link from "next/link";
 
 const SocialIcons = [
-  faLinkedinIn,
-  faGithub,
-  faFacebook,
-  faTwitter,
-  faSteam,
-  faEnvelopeOpenText,
+  { icon: faLinkedinIn, url: process.env.NEXT_PUBLIC_LINKED_IN ?? "" },
+  { icon: faGithub, url: process.env.NEXT_PUBLIC_GIT ?? "" },
+  { icon: faFacebook, url: process.env.NEXT_PUBLIC_FB ?? "" },
+  { icon: faTwitter, url: process.env.NEXT_PUBLIC_TW ?? "" },
+  { icon: faSteam, url: process.env.NEXT_PUBLIC_STEAM ?? "" },
+  {
+    icon: faEnvelopeOpenText,
+    url: process.env.NEXT_PUBLIC_EMAIL
+      ? `mailto:${process.env.NEXT_PUBLIC_EMAIL}`
+      : "",
+  },
 ];
 
-const PortfolioLandingIntro = () => {
+const PortfolioIntro = () => {
   const [dynamicHeadingText, setDynamicHeadingText] = useState(phrases[0]);
 
   useGenerateText(setDynamicHeadingText);
@@ -48,8 +54,14 @@ const PortfolioLandingIntro = () => {
             development, with over 2 years of hands-on experience on Next.js
             React and many other frame works.
           </Title>
-          <Arrow />
-
+          <Link
+            prefetch
+            href={process.env.NEXT_PUBLIC_RESUME ?? ""}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Arrow />
+          </Link>
           <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
             Bringing
           </Title>
@@ -88,14 +100,16 @@ const PortfolioLandingIntro = () => {
             <div className={Styles["box6"]} />
             <div className={Styles["box7"]} />
             <div className={Styles["box8"]}>
-              {SocialIcons.map((icon, index) => (
+              {SocialIcons.map((iconData, index) => (
                 <motion.div whileHover={{ scale: 1.2 }} key={index}>
-                  <FaIcon
-                    name={icon}
-                    color="var(--text-color-pink)"
-                    size="3x"
-                    classAppend={Styles["fa-icon"]}
-                  />
+                  <Link href={iconData.url} target="_blank">
+                    <FaIcon
+                      name={iconData.icon}
+                      color="var(--text-color-pink)"
+                      size="3x"
+                      classAppend={Styles["fa-icon"]}
+                    />
+                  </Link>
                 </motion.div>
               ))}
               {/* <Image
@@ -110,7 +124,7 @@ const PortfolioLandingIntro = () => {
         </div>
 
         <div className={Styles["mobile-contact-me-section"]}>
-          {SocialIcons.map((icon, index) => (
+          {SocialIcons.map((iconData, index) => (
             <motion.div
               whileHover={{ scale: 1.2 }}
               key={index}
@@ -124,12 +138,14 @@ const PortfolioLandingIntro = () => {
                 // background: "red",
               }}
             >
-              <FaIcon
-                name={icon}
-                color="var(--text-color-pink)"
-                size="3x"
-                classAppend={Styles["fa-icon"]}
-              />
+              <Link href={iconData.url} target="_blank">
+                <FaIcon
+                  name={iconData.icon}
+                  color="var(--text-color-pink)"
+                  size="3x"
+                  classAppend={Styles["fa-icon"]}
+                />
+              </Link>
             </motion.div>
           ))}
         </div>
@@ -138,4 +154,4 @@ const PortfolioLandingIntro = () => {
   );
 };
 
-export default PortfolioLandingIntro;
+export default PortfolioIntro;
