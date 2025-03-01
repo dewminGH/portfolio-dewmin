@@ -8,15 +8,16 @@ import { Carousel, MediaItem, MediaType } from "../../molecules";
 
 const PortfolioBeyond = () => {
   const mediaItems: MediaItem[] = [
-    { type: MediaType.IMAGE, src: NARAKA.src },
-    {
-      type: MediaType.VIDEO,
-      src: process.env.NEXT_PUBLIC_CLIP_1 ?? "",
-    },
-    { type: MediaType.IMAGE, src: DF.src },
     {
       type: MediaType.VIDEO,
       src: process.env.NEXT_PUBLIC_CLIP_2 ?? "",
+    },
+    { type: MediaType.IMAGE, src: NARAKA.src },
+
+    { type: MediaType.IMAGE, src: DF.src },
+    {
+      type: MediaType.VIDEO,
+      src: process.env.NEXT_PUBLIC_CLIP_1 ?? "",
     },
     { type: MediaType.IMAGE, src: PUBG.src },
   ];
