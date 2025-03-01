@@ -2,12 +2,13 @@
 
 import NavItem from "./nav-item";
 import Styles from "./styles.module.css";
-import { motion, useCycle } from "framer-motion";
+import { Cycle, motion, useCycle } from "framer-motion";
 import { FaIcon } from "../../atoms";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { IN_PAGE_LINKS } from "@/app/configs/route.config";
+import { NavBarProps } from "./type";
 
 const sidebarVariants = {
   open: {
@@ -29,9 +30,10 @@ const sidebarVariants = {
   },
 };
 
-const Navigation = () => (
+const Navigation = ({ setOpen }: { setOpen: Cycle }) => (
   <motion.ul
     className={Styles["nav-item-container"]}
+    onClick={() => setOpen(0)}
     variants={{
       open: { transition: { staggerChildren: 0.07, delayChildren: 0.2 } },
       closed: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
@@ -58,17 +60,42 @@ const getClosedClipPath = () => {
     return "circle(30px at 90px 90px)";
   }
 };
-const NavBar = () => {
+const NavBar: React.FC<NavBarProps> = ({ setIsOpenNav }) => {
   const [isOpen, setIsOpen] = useCycle(false, true);
   const [clipPathValue, setClipPathValue] = useState(getClosedClipPath());
+  const NavRef = useRef<null | HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (setIsOpenNav) {
+      setIsOpenNav(isOpen);
+    }
+  }, [isOpen, setIsOpenNav]);
 
   useEffect(() => {
     const updateClipPath = () => setClipPathValue(getClosedClipPath());
-
-    window.addEventListener("resize", updateClipPath);
-
+    if (typeof window !== "undefined") {
+      window.addEventListener("resize", updateClipPath);
+    }
     return () => window.removeEventListener("resize", updateClipPath);
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        NavRef?.current &&
+        !NavRef.current.contains(event.target as Node) &&
+        isOpen
+      ) {
+        setIsOpen(0);
+      }
+    };
+    if (typeof document !== "undefined") {
+      document.addEventListener("click", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isOpen, setIsOpen]);
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
@@ -95,22 +122,25 @@ const NavBar = () => {
   );
 
   return (
-    <motion.nav
-      initial={false}
-      animate={isOpen ? "open" : "closed"}
-      variants={{
-        ...sidebarVariants,
-        closed: {
-          ...sidebarVariants.closed,
-          clipPath: clipPathValue,
-        },
-      }}
-      className={Styles.nav}
-    >
-      <motion.div className={Styles.background} />
-      <Navigation />
-      <MenuToggle toggle={setIsOpen} />
-    </motion.nav>
+    <div style={{ position: "relative" }}>
+      <motion.nav
+        ref={NavRef}
+        initial={false}
+        animate={isOpen ? "open" : "closed"}
+        variants={{
+          ...sidebarVariants,
+          closed: {
+            ...sidebarVariants.closed,
+            clipPath: clipPathValue,
+          },
+        }}
+        className={Styles.nav}
+      >
+        <motion.div className={Styles.background} />
+        <Navigation setOpen={setIsOpen} />
+        <MenuToggle toggle={setIsOpen} />
+      </motion.nav>
+    </div>
   );
 };
 

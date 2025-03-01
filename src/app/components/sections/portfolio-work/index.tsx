@@ -1,7 +1,7 @@
 import { Background, Section } from "../../layouts";
 import Timeline from "./Timeline";
 
-const PortFolioWork: React.FC = () => {
+const PortfolioWork: React.FC = () => {
   return (
     <Section background={Background.PRIMARY_GRADIENT}>
       <Timeline />
@@ -9,4 +9,4 @@ const PortFolioWork: React.FC = () => {
   );
 };
 
-export default PortFolioWork;
+export default PortfolioWork;

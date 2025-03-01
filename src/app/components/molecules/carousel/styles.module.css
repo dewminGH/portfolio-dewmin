@@ -1,0 +1,86 @@
+.carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+.carousel-button {
+  color: var(--perfect-black);
+  position: absolute;
+  z-index: 10;
+  background-color: var(--primary-color-gray);
+  padding: 10px 15px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.carousel-button:hover {
+  transform: scale(1.1);
+}
+
+.carousel-button-left {
+  left: 10px;
+  z-index: 20;
+}
+
+.carousel-button-right {
+  right: 10px;
+  z-index: 20;
+}
+
+.carousel-container {
+  position: relative;
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+
+.carousel-image {
+  position: absolute;
+  width: 100%; /* Responsive width */
+  max-width: 640px; /* Adjust as needed */
+  height: auto;
+  aspect-ratio: 16 / 9; /* Maintains 16:9 ratio automatically */
+  object-fit: cover;
+  transition: transform 0.5s ease, opacity 0.5s ease, z-index 0.5s ease;
+  opacity: 0.7; /* Default opacity */
+  border-radius: 50px;
+}
+
+.carousel-image-active {
+  z-index: 10;
+  transform: scale(1.5); /* Active slide is bigger */
+  opacity: 1; /* Full opacity */
+  border-radius: 20px; /* Active slide has sharp corners */
+}
+
+.carousel-image-left,
+.carousel-image-right {
+  z-index: 5;
+  transform: scale(1); /* Slightly smaller for prev/next slides */
+}
+
+.carousel-image-left {
+  transform: translateX(-80%) scale(0.8); /* Left slide partially visible */
+}
+
+.carousel-image-right {
+  transform: translateX(80%) scale(0.8); /* Right slide partially visible */
+}
+
+.carousel-iframe {
+  border: none;
+  outline: none;
+  display: block;
+}

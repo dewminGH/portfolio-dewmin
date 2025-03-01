@@ -1,4 +1,6 @@
 export enum Background {
+  FAV_GRAY = "FAV_GRAY",
+  FAV = "FAV",
   PRIMARY_GRADIENT = "PRIMARY_GRADIENT",
   GRAY = "GRAY",
 }

@@ -1,19 +1,25 @@
 import "./theme/theme.css";
 import "./styles.css";
 import {
-  Navbar,
+  // PortfolioAbout,
+  PortfolioBeyond,
   PortfolioIntro,
+  PortfolioNavWithCanvas,
+  PortfolioSite,
   PortfolioTeachStack,
-  PortFolioWork,
+  PortfolioWork,
 } from "./components";
 
 const PortfolioLandingPage: React.FC = () => {
   return (
     <div>
-      <Navbar />
+      <PortfolioNavWithCanvas />
       <PortfolioIntro />
       <PortfolioTeachStack />
-      <PortFolioWork />
+      <PortfolioWork />
+      <PortfolioSite />
+      {/* <PortfolioAbout /> */}
+      <PortfolioBeyond />
     </div>
   );
 };

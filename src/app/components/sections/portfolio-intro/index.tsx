@@ -36,7 +36,7 @@ const PortfolioIntro = () => {
 
   useGenerateText(setDynamicHeadingText);
   return (
-    <Section background={Background.PRIMARY_GRADIENT}>
+    <Section background={Background.FAV}>
       <div className={Styles["section-container"]} id="home">
         <div className={Styles["section-fragment"]}>
           <Title
@@ -50,9 +50,9 @@ const PortfolioIntro = () => {
             Hello, I’m Dewmin
           </Title>
           <Title size="small" variant="h4" classAppend={Styles["title-ph"]}>
-            I am a seasoned Software Engineer specializing in front-end
-            development, with over 2 years of hands-on experience on Next.js
-            React and many other frame works.
+            I am a highly skilled Software Engineer with over 2 years of
+            specialized experience in front-end development, focusing on
+            Next.js, React, and a diverse range of cutting-edge frameworks
           </Title>
           <Link
             prefetch

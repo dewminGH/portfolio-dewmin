@@ -4,7 +4,7 @@ import Styles from "./styles.module.css";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Background, Section } from "../../layouts";
-import { techIcons } from "./tech-icons";
+import { techIcons } from "../../../configs/tech-icons";
 import { Title } from "../../atoms";
 import { animationVariants } from "@/app/configs/animation";
 

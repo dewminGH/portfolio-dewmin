@@ -1,0 +1,34 @@
+.site-portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  /* overflow: hidden; */
+  padding: 80px 0 120px 0;
+}
+
+.title-static {
+  padding: 40px 0 80px 0;
+  color: var(--perfect-black);
+  z-index: 2;
+}
+
+.title-ph {
+  /* padding: 0 0 300px 0; */
+  text-align: center;
+  color: var(--perfect-black);
+  opacity: 0.4;
+  font-size: 18px;
+  max-width: 700px;
+}
+
+@media only screen and (max-width: 768px) {
+  .title-ph {
+    padding: 0 0 60px 0;
+    font-size: 14px;
+  }
+  .site-portfolio {
+    padding: 80px 0 20px 0;
+  }
+}

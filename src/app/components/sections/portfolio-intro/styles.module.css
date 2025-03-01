@@ -61,7 +61,7 @@
 .section-image {
   width: 300px;
   position: absolute;
-  z-index: 1000;
+  z-index: 99;
   right: 0;
   background: var(--primary-color-gradient-dark);
   height: 680px;

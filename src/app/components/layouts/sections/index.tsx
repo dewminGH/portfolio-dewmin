@@ -4,6 +4,10 @@ import { Background, SectionProps } from "./type";
 const Section: React.FC<SectionProps> = ({ children, background }) => {
   const colorPicker = (colors?: Background): string => {
     switch (colors) {
+      case Background.FAV:
+        return "var(--fav-gradient)";
+      case Background.FAV_GRAY:
+        return "var(--fav-gradient-gray)";
       case Background.PRIMARY_GRADIENT:
         return "var(--primary-color-gradient)";
       case Background.GRAY:
