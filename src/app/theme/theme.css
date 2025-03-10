@@ -60,6 +60,7 @@
   --gray-low-text: #d0cdcd;
   --primary-color-gray: rgb(226, 226, 226);
   --primary-color-gray-dark: rgb(207, 205, 205);
+  --sub-background-gray: rgb(180, 180, 180);
   --fav-gradient-gray: linear-gradient(
     135deg,
     rgb(226, 226, 226) 0%,
@@ -103,4 +104,100 @@
     /* Thirty-eighth column */ rgb(180, 180, 180) 47.5%,
     /* Thirty-ninth column */ rgb(180, 180, 180) 50% /* Fortieth column */
   );
+
+  /* my dark theme CSS config*/
+  .dark-mode {
+    --fav-gradient: linear-gradient(
+      45deg,
+      #3a3a4e 0%,
+      #3a3a4e 2.5%,
+      #5a5a6e 2.5%,
+      #5a5a6e 5%,
+      #3a3a4e 5%,
+      #3a3a4e 7.5%,
+      #5a5a6e 7.5%,
+      #5a5a6e 10%,
+      #3a3a4e 10%,
+      #3a3a4e 12.5%,
+      #5a5a6e 12.5%,
+      #5a5a6e 15%,
+      #3a3a4e 15%,
+      #3a3a4e 17.5%,
+      #5a5a6e 17.5%,
+      #5a5a6e 20%,
+      #3a3a4e 20%,
+      #3a3a4e 22.5%,
+      #5a5a6e 22.5%,
+      #5a5a6e 25%,
+      #3a3a4e 25%,
+      #3a3a4e 27.5%,
+      #5a5a6e 27.5%,
+      #5a5a6e 30%,
+      #3a3a4e 30%,
+      #3a3a4e 32.5%,
+      #5a5a6e 32.5%,
+      #5a5a6e 35%,
+      #3a3a4e 35%,
+      #3a3a4e 37.5%,
+      #5a5a6e 37.5%,
+      #5a5a6e 40%,
+      #3a3a4e 40%,
+      #3a3a4e 42.5%,
+      #5a5a6e 42.5%,
+      #5a5a6e 45%,
+      #3a3a4e 45%,
+      #3a3a4e 47.5%,
+      #5a5a6e 47.5%,
+      #5a5a6e 50%
+    );
+    --fav-gradient-gray: linear-gradient(
+      135deg,
+      #5a5a6e 0%,
+      #5a5a6e 2.5%,
+      #3a3a4e 2.5%,
+      #3a3a4e 5%,
+      #5a5a6e 5%,
+      #5a5a6e 7.5%,
+      #3a3a4e 7.5%,
+      #3a3a4e 10%,
+      #5a5a6e 10%,
+      #5a5a6e 12.5%,
+      #3a3a4e 12.5%,
+      #3a3a4e 15%,
+      #5a5a6e 15%,
+      #5a5a6e 17.5%,
+      #3a3a4e 17.5%,
+      #3a3a4e 20%,
+      #5a5a6e 20%,
+      #5a5a6e 22.5%,
+      #3a3a4e 22.5%,
+      #3a3a4e 25%,
+      #5a5a6e 25%,
+      #5a5a6e 27.5%,
+      #3a3a4e 27.5%,
+      #3a3a4e 30%,
+      #5a5a6e 30%,
+      #5a5a6e 32.5%,
+      #3a3a4e 32.5%,
+      #3a3a4e 35%,
+      #5a5a6e 35%,
+      #5a5a6e 37.5%,
+      #3a3a4e 37.5%,
+      #3a3a4e 40%,
+      #5a5a6e 40%,
+      #5a5a6e 42.5%,
+      #3a3a4e 42.5%,
+      #3a3a4e 45%,
+      #5a5a6e 45%,
+      #5a5a6e 47.5%,
+      #3a3a4e 47.5%,
+      #3a3a4e 50%
+    );
+    --primary-color-gradient-dark: #3a3a4e 2.5%;
+    --primary-color-gradient: #5a5a6e 2.5%;
+    --perfect-black: #dddddd;
+    --primary-color-gray: #3a3a4e 2.5%;
+    --primary-color-gray-dark: #5a5a6e 2.5%;
+    --sub-background-gray: #5a5a6e 2.5%;
+  }
 }

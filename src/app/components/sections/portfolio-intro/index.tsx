@@ -3,9 +3,11 @@
 import Styles from "./styles.module.css";
 import Image from "next/image";
 import MOUSE from "../../../assets/mouse.png";
+import CHILL from "../../../assets/chill.png";
+import ICE_CREAM from "../../../assets/ice-cream.png";
 import useGenerateText, { phrases } from "./use-generate-text";
 import { Background, Section } from "../../layouts";
-import { Arrow, FaIcon, Title } from "../../atoms";
+import { FaIcon, Title } from "../../atoms";
 import { useState } from "react";
 import { motion } from "motion/react";
 import { fadeSlideVariants } from "@/app/configs/animation";
@@ -16,6 +18,7 @@ import { faSteam } from "@fortawesome/free-brands-svg-icons/faSteam";
 import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
 import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons/faEnvelopeOpenText";
 import Link from "next/link";
+import { useTheme } from "@/app/hooks";
 
 const SocialIcons = [
   { icon: faLinkedinIn, url: process.env.NEXT_PUBLIC_LINKED_IN ?? "" },
@@ -33,8 +36,9 @@ const SocialIcons = [
 
 const PortfolioIntro = () => {
   const [dynamicHeadingText, setDynamicHeadingText] = useState(phrases[0]);
-
+  const { startThemeChange, isDark, changeTheme } = useTheme();
   useGenerateText(setDynamicHeadingText);
+
   return (
     <Section background={Background.FAV}>
       <div className={Styles["section-container"]} id="home">
@@ -54,14 +58,41 @@ const PortfolioIntro = () => {
             specialized experience in front-end development, focusing on
             Next.js, React, and a diverse range of cutting-edge frameworks
           </Title>
-          <Link
+          <div className="custom-font">
+            <Title
+              size="xl"
+              variant="h1"
+              classAppend={Styles["sub-title-gray"]}
+            >
+              WaNna ChanGe Theme ? <br />
+              try mE !
+              <br />
+              <motion.img
+                key={isDark ? "dark" : "light"}
+                initial={{ opacity: 1, scale: 0 }}
+                animate={
+                  changeTheme
+                    ? { opacity: 0, scale: 0.5, rotate: 360 }
+                    : { opacity: 1, scale: 1, rotate: 360 }
+                }
+                transition={{ duration: 0.6, ease: "easeInOut" }}
+                src={isDark ? ICE_CREAM.src : CHILL.src}
+                width={96}
+                height={96}
+                alt="theme-image"
+                className={Styles["theme-img"]}
+                onClick={startThemeChange}
+              />
+            </Title>
+          </div>
+          {/* <Link
             prefetch
             href={process.env.NEXT_PUBLIC_RESUME ?? ""}
             target="_blank"
             rel="noopener noreferrer"
           >
             <Arrow />
-          </Link>
+          </Link> */}
           <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
             Bringing
           </Title>

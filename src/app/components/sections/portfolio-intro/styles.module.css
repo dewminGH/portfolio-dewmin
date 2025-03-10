@@ -184,6 +184,15 @@
   right: 0;
 }
 
+.theme-img:hover {
+  cursor: pointer;
+  filter: invert();
+}
+
+.invert:hover {
+  filter: invert();
+}
+
 /* responsive settings */
 
 @media only screen and (max-width: 1440px) {
