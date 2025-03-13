@@ -16,7 +16,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--primary-color-gradient-dark);
+  background: var(--primary-color-gradient-dark-scroll);
 }
 
 ::-webkit-scrollbar-thumb {

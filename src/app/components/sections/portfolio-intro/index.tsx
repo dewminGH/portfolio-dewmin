@@ -1,8 +1,9 @@
 "use client";
 
 import Styles from "./styles.module.css";
-import Image from "next/image";
-import MOUSE from "../../../assets/mouse.png";
+// import Image from "next/image";
+import MOUSE_DARK from "../../../assets/mouse-dark.png";
+import MOUSE_LIGHT from "../../../assets/mouse-light.png";
 import CHILL from "../../../assets/chill.png";
 import ICE_CREAM from "../../../assets/ice-cream.png";
 import useGenerateText, { phrases } from "./use-generate-text";
@@ -19,6 +20,7 @@ import { faTwitter } from "@fortawesome/free-brands-svg-icons/faTwitter";
 import { faEnvelopeOpenText } from "@fortawesome/free-solid-svg-icons/faEnvelopeOpenText";
 import Link from "next/link";
 import { useTheme } from "@/app/hooks";
+import { ImageSRCState } from "./type";
 
 const SocialIcons = [
   { icon: faLinkedinIn, url: process.env.NEXT_PUBLIC_LINKED_IN ?? "" },
@@ -36,12 +38,16 @@ const SocialIcons = [
 
 const PortfolioIntro = () => {
   const [dynamicHeadingText, setDynamicHeadingText] = useState(phrases[0]);
-  const [imageSrc, setImageSrc] = useState<string | null>(null);
+  const [imageSrc, setImageSrc] = useState<ImageSRCState | null>(null);
   const { startThemeChange, isDark, changeTheme } = useTheme();
   useGenerateText(setDynamicHeadingText);
 
   useEffect(() => {
-    setImageSrc(isDark ? ICE_CREAM.src : CHILL.src);
+    setImageSrc(
+      isDark
+        ? { theme: ICE_CREAM.src, mouse: MOUSE_LIGHT.src }
+        : { theme: CHILL.src, mouse: MOUSE_DARK.src }
+    );
   }, [isDark]);
 
   return (
@@ -71,26 +77,26 @@ const PortfolioIntro = () => {
             >
               WaNna ChanGe Theme ? <br />
               <span className={Styles["remove-element-mobile"]}>
-                {imageSrc &&
-                  (imageSrc.includes("ice") ? "Light" : "daRk").concat(
+                {imageSrc?.theme &&
+                  (imageSrc.theme.includes("ice") ? "Light" : "daRk").concat(
                     " thEme iS waITting foR yOu"
                   )}
                 <br />
-                {imageSrc && (
+                {imageSrc?.theme && (
                   <motion.div
                     whileHover={{ scale: 1.18 }}
                     onClick={startThemeChange}
                     className={Styles["pointer"]}
                   >
-                    {imageSrc.includes("ice")
+                    {imageSrc.theme.includes("ice")
                       ? "try to CreAm iCE mE !"
                       : "try to ChiLly mE !"}
                   </motion.div>
                 )}
               </span>
-              {imageSrc && (
+              {imageSrc?.theme && (
                 <motion.img
-                  key={imageSrc}
+                  key={imageSrc.theme}
                   initial={{ opacity: 1, scale: 0 }}
                   animate={
                     changeTheme
@@ -98,7 +104,7 @@ const PortfolioIntro = () => {
                       : { opacity: 1, scale: 1, rotate: 360 }
                   }
                   transition={{ duration: 0.6, ease: "easeInOut" }}
-                  src={imageSrc}
+                  src={imageSrc.theme}
                   width={96}
                   height={96}
                   alt="theme-image"
@@ -135,13 +141,6 @@ const PortfolioIntro = () => {
               {dynamicHeadingText}
             </Title>
           </motion.div>
-          <Image
-            src={MOUSE.src}
-            width={50}
-            height={50}
-            alt="mouse"
-            className={Styles["image-mouse"]}
-          />
         </div>
         <div className={Styles["section-image"]}>
           <div className={Styles["section-image-layout"]}>

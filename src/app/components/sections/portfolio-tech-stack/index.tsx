@@ -10,7 +10,7 @@ import { animationVariants } from "@/app/configs/animation";
 
 const PortfolioTeachStack: React.FC = () => {
   return (
-    <Section background={Background.GRAY}>
+    <Section background={Background.PINK_GRAY}>
       <div className={Styles["tech-stack-container"]} id="tech-stack">
         <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
           Tech Stack

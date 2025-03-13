@@ -3,6 +3,7 @@ export enum Background {
   FAV = "FAV",
   PRIMARY_GRADIENT = "PRIMARY_GRADIENT",
   GRAY = "GRAY",
+  PINK_GRAY = "PINK_GRAY",
 }
 
 export type SectionProps = {

@@ -12,6 +12,8 @@ const Section: React.FC<SectionProps> = ({ children, background }) => {
         return "var(--primary-color-gradient)";
       case Background.GRAY:
         return "var(--primary-color-gray)";
+      case Background.PINK_GRAY:
+        return "var(--primary-color-gradient-pink-gray)";
       default:
         return "#FFFFFF";
     }

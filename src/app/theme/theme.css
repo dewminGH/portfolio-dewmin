@@ -4,8 +4,9 @@
     hsla(311, 74%, 87%, 1) 0%,
     hsla(275, 19%, 88%, 1) 100%
   );
-  --primary-color-gradient-dark: hsla(293, 46.5%, 85%, 1);
-
+  --primary-color-gradient-dark: hsla(311, 74%, 87%, 1);
+  --primary-color-gradient-dark-scroll: hsla(293, 46.5%, 85%, 1);
+  --primary-color-gradient-pink-gray: hsla(275, 19%, 88%, 1);
   --primary-color-gradient-text: linear-gradient(
     90deg,
     #6a6cff 0%,
@@ -194,10 +195,12 @@
     #3a3a4e 47.5%,
     #3a3a4e 50%
   );
-  --primary-color-gradient-dark: #3a3a4e 2.5%;
-  --primary-color-gradient: #5a5a6e 2.5%;
+  --primary-color-gradient-pink-gray: #3a3a4e;
+  --primary-color-gradient-dark: #3a3a4e;
+  --primary-color-gradient-dark-scroll: #3a3a4e;
+  --primary-color-gradient: #5a5a6e;
   --perfect-black: #dddddd;
-  --primary-color-gray: #3a3a4e 2.5%;
-  --primary-color-gray-dark: #5a5a6e 2.5%;
-  --sub-background-gray: #5a5a6e 2.5%;
+  --primary-color-gray: #3a3a4e;
+  --primary-color-gray-dark: #5a5a6e;
+  --sub-background-gray: #5a5a6e;
 }
