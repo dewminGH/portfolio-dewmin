@@ -69,9 +69,28 @@ const PortfolioIntro = () => {
             specialized experience in front-end development, focusing on
             Next.js, React, and a diverse range of cutting-edge frameworks
           </Title>
+          <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
+            Bringing
+          </Title>
+          <motion.div
+            key={dynamicHeadingText}
+            variants={fadeSlideVariants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+            transition={{ duration: 0.65, ease: "easeInOut" }}
+          >
+            <Title
+              size="xxxl"
+              variant="h1"
+              classAppend={Styles["title-dynamic"]}
+            >
+              {dynamicHeadingText}
+            </Title>
+          </motion.div>
           <div className="custom-font">
             <Title
-              size="xl"
+              size="xl-extend"
               variant="h1"
               classAppend={Styles["sub-title-gray"]}
             >
@@ -122,25 +141,6 @@ const PortfolioIntro = () => {
           >
             <Arrow />
           </Link> */}
-          <Title size="xxl" variant="h2" classAppend={Styles["title-static"]}>
-            Bringing
-          </Title>
-          <motion.div
-            key={dynamicHeadingText}
-            variants={fadeSlideVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{ duration: 0.65, ease: "easeInOut" }}
-          >
-            <Title
-              size="xxxl"
-              variant="h1"
-              classAppend={Styles["title-dynamic"]}
-            >
-              {dynamicHeadingText}
-            </Title>
-          </motion.div>
         </div>
         <div className={Styles["section-image"]}>
           <div className={Styles["section-image-layout"]}>

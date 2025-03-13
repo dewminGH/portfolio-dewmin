@@ -3,6 +3,7 @@ export type FontSize =
   | "medium"
   | "large"
   | "large-extend"
+  | "xl-extend"
   | "xl"
   | "xxl"
   | "xxxl";

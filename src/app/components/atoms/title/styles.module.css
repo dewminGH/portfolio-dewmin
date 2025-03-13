@@ -27,6 +27,10 @@
   font-size: 70px;
 }
 
+.xl-extend {
+  font-size: 60px;
+}
+
 .xxl {
   font-size: 90px;
 }
@@ -61,6 +65,10 @@
     font-size: 50px;
   }
 
+  .xl-extend {
+    font-size: 60px;
+  }
+
   .xxxl {
     font-size: 62px;
   }
@@ -84,6 +92,10 @@
   }
 
   .xl {
+    font-size: 60px;
+  }
+
+  .xl-extend {
     font-size: 60px;
   }
 

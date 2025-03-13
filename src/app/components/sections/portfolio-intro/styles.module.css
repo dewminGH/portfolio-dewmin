@@ -14,13 +14,13 @@
 }
 
 .section-fragment {
-  padding: 80px 0;
+  /* padding: 80px 360px 0 0; */
   display: flex;
   flex: 1;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  /* padding: 60px 260px 0 0; */
+  padding: 60px 360px 0 0;
 }
 
 .sub-title-gray {
