@@ -29,11 +29,16 @@ html {
 }
 
 /* only use for theme change button */
-.custom-font {
-  * {
-    font-family: "Caveat", cursive !important;
-    font-optical-sizing: auto;
-    font-weight: 500;
-    font-style: normal;
-  }
+.custom-font * {
+  font-family: "Caveat", cursive !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+/* mobile CSS upgrade */
+.nav-scroll-css {
+  max-height: calc(100svh - 180px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 20px;
 }

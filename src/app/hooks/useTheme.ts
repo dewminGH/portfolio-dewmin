@@ -1,9 +1,11 @@
+"use client";
+
 import { useEffect, useState } from "react";
 
 const useTheme = () => {
   const [changeTheme, setChangeTheme] = useState<boolean>(false);
   const [isDark, setIsDark] = useState<boolean>(
-    typeof document !== "undefined"
+    typeof window !== "undefined"
       ? localStorage.getItem("theme")
         ? true
         : false
@@ -11,18 +13,20 @@ const useTheme = () => {
   );
 
   useEffect(() => {
-    if (typeof document !== "undefined") {
+    if (typeof window !== "undefined") {
       // default as light theme
       if (localStorage.getItem("theme")) {
         document.body.classList.add("dark-mode");
+        setIsDark(true);
       } else {
         document.body.classList.remove("dark-mode");
+        setIsDark(false);
       }
     }
-  }, []);
+  }, [setIsDark]);
 
   useEffect(() => {
-    if (typeof document !== "undefined" && changeTheme) {
+    if (typeof window !== "undefined" && changeTheme) {
       // default as light theme
       if (!localStorage.getItem("theme")) {
         document.body.classList.add("dark-mode");
@@ -38,6 +42,7 @@ const useTheme = () => {
   }, [changeTheme, setIsDark]);
 
   const startThemeChange = () => {
+    console.log();
     setChangeTheme(true);
   };
 

@@ -8,7 +8,7 @@ import ICE_CREAM from "../../../assets/ice-cream.png";
 import useGenerateText, { phrases } from "./use-generate-text";
 import { Background, Section } from "../../layouts";
 import { FaIcon, Title } from "../../atoms";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { fadeSlideVariants } from "@/app/configs/animation";
 import { faLinkedinIn } from "@fortawesome/free-brands-svg-icons/faLinkedinIn";
@@ -36,8 +36,13 @@ const SocialIcons = [
 
 const PortfolioIntro = () => {
   const [dynamicHeadingText, setDynamicHeadingText] = useState(phrases[0]);
+  const [imageSrc, setImageSrc] = useState<string | null>(null);
   const { startThemeChange, isDark, changeTheme } = useTheme();
   useGenerateText(setDynamicHeadingText);
+
+  useEffect(() => {
+    setImageSrc(isDark ? ICE_CREAM.src : CHILL.src);
+  }, [isDark]);
 
   return (
     <Section background={Background.FAV}>
@@ -65,24 +70,42 @@ const PortfolioIntro = () => {
               classAppend={Styles["sub-title-gray"]}
             >
               WaNna ChanGe Theme ? <br />
-              try mE !
-              <br />
-              <motion.img
-                key={isDark ? "dark" : "light"}
-                initial={{ opacity: 1, scale: 0 }}
-                animate={
-                  changeTheme
-                    ? { opacity: 0, scale: 0.5, rotate: 360 }
-                    : { opacity: 1, scale: 1, rotate: 360 }
-                }
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-                src={isDark ? ICE_CREAM.src : CHILL.src}
-                width={96}
-                height={96}
-                alt="theme-image"
-                className={Styles["theme-img"]}
-                onClick={startThemeChange}
-              />
+              <span className={Styles["remove-element-mobile"]}>
+                {imageSrc &&
+                  (imageSrc.includes("ice") ? "Light" : "daRk").concat(
+                    " thEme iS waITting foR yOu"
+                  )}
+                <br />
+                {imageSrc && (
+                  <motion.div
+                    whileHover={{ scale: 1.18 }}
+                    onClick={startThemeChange}
+                    className={Styles["pointer"]}
+                  >
+                    {imageSrc.includes("ice")
+                      ? "try to CreAm iCE mE !"
+                      : "try to ChiLly mE !"}
+                  </motion.div>
+                )}
+              </span>
+              {imageSrc && (
+                <motion.img
+                  key={imageSrc}
+                  initial={{ opacity: 1, scale: 0 }}
+                  animate={
+                    changeTheme
+                      ? { opacity: 0, scale: 0.5, rotate: 360 }
+                      : { opacity: 1, scale: 1, rotate: 360 }
+                  }
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                  src={imageSrc}
+                  width={96}
+                  height={96}
+                  alt="theme-image"
+                  className={Styles["theme-img"]}
+                  onClick={startThemeChange}
+                />
+              )}
             </Title>
           </div>
           {/* <Link
@@ -103,7 +126,6 @@ const PortfolioIntro = () => {
             animate="animate"
             exit="exit"
             transition={{ duration: 0.65, ease: "easeInOut" }}
-            // whileHover={{ scale: 2 }}
           >
             <Title
               size="xxxl"
@@ -162,11 +184,9 @@ const PortfolioIntro = () => {
               style={{
                 display: "flex",
                 justifyContent: "center",
-                // border: "2px solid  var(--text-color-pink)",
                 padding: "8px",
                 borderRadius: "8px",
                 background: "var(--primary-color-gradient-dark)",
-                // background: "red",
               }}
             >
               <Link href={iconData.url} target="_blank">

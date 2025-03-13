@@ -6,7 +6,7 @@ import { Cycle, motion, useCycle } from "framer-motion";
 import { FaIcon } from "../../atoms";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { faTimes } from "@fortawesome/free-solid-svg-icons/faTimes";
-import { useEffect, useRef, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import { IN_PAGE_LINKS } from "@/app/configs/route.config";
 import { NavBarProps } from "./type";
 
@@ -30,8 +30,15 @@ const sidebarVariants = {
   },
 };
 
-const Navigation = ({ setOpen }: { setOpen: Cycle }) => (
+const Navigation = ({
+  setOpen,
+  containerRef,
+}: {
+  setOpen: Cycle;
+  containerRef: LegacyRef<HTMLUListElement> | undefined;
+}) => (
   <motion.ul
+    ref={containerRef}
     className={Styles["nav-item-container"]}
     onClick={() => setOpen(0)}
     variants={{
@@ -57,19 +64,35 @@ const getClosedClipPath = () => {
       return "circle(30px at 90px 90px)";
     }
   } else {
-    return "circle(30px at 90px 90px)";
+    return "circle(30px at 70px 70px)";
   }
 };
 const NavBar: React.FC<NavBarProps> = ({ setIsOpenNav }) => {
   const [isOpen, setIsOpen] = useCycle(false, true);
   const [clipPathValue, setClipPathValue] = useState(getClosedClipPath());
   const NavRef = useRef<null | HTMLDivElement>(null);
+  const NavItemListContainerRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
     if (setIsOpenNav) {
       setIsOpenNav(isOpen);
     }
-  }, [isOpen, setIsOpenNav]);
+    if (typeof window !== "undefined" && NavItemListContainerRef.current) {
+      if (isOpen) {
+        setTimeout(() => {
+          if (NavItemListContainerRef.current) {
+            NavItemListContainerRef.current.classList.add("nav-scroll-css");
+          }
+        }, 700);
+      } else {
+        setTimeout(() => {
+          if (NavItemListContainerRef.current) {
+            NavItemListContainerRef.current.classList.remove("nav-scroll-css");
+          }
+        }, 700);
+      }
+    }
+  }, [isOpen, setIsOpenNav, NavItemListContainerRef]);
 
   useEffect(() => {
     const updateClipPath = () => setClipPathValue(getClosedClipPath());
@@ -137,7 +160,10 @@ const NavBar: React.FC<NavBarProps> = ({ setIsOpenNav }) => {
         className={Styles.nav}
       >
         <motion.div className={Styles.background} />
-        <Navigation setOpen={setIsOpen} />
+        <Navigation
+          setOpen={setIsOpen}
+          containerRef={NavItemListContainerRef}
+        />
         <MenuToggle toggle={setIsOpen} />
       </motion.nav>
     </div>
