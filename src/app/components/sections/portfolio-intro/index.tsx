@@ -115,6 +115,7 @@ const PortfolioIntro = () => {
               </span>
               {imageSrc?.theme && (
                 <motion.img
+                  fetchPriority="high"
                   key={imageSrc.theme}
                   initial={{ opacity: 1, scale: 0 }}
                   animate={

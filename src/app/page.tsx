@@ -1,12 +1,12 @@
 import "./theme/theme.css";
 import "./styles.css";
 import {
+  LazyTechStack,
   // PortfolioAbout,
   PortfolioBeyond,
   PortfolioIntro,
   PortfolioNavWithCanvas,
   PortfolioSite,
-  PortfolioTeachStack,
   PortfolioWork,
 } from "./components";
 
@@ -15,7 +15,7 @@ const PortfolioLandingPage: React.FC = () => {
     <div>
       <PortfolioNavWithCanvas />
       <PortfolioIntro />
-      <PortfolioTeachStack />
+      <LazyTechStack />
       <PortfolioWork />
       <PortfolioSite />
       {/* <PortfolioAbout /> */}

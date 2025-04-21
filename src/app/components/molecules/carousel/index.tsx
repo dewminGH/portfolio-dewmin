@@ -65,6 +65,7 @@ const Carousel: React.FC<{ mediaItems: MediaItem[] }> = ({ mediaItems }) => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: index === activeIndex ? 1 : 0.5 }}
                   transition={{ duration: 0.5 }}
+                  loading="lazy"
                 />
               ) : (
                 <motion.video
@@ -78,6 +79,7 @@ const Carousel: React.FC<{ mediaItems: MediaItem[] }> = ({ mediaItems }) => {
                   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                   // @ts-expect-error
                   onClick={iframeOnClick}
+                  loading="lazy"
                 />
               )}
             </React.Fragment>

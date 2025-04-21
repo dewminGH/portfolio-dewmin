@@ -1,5 +1,5 @@
 .title {
-  font-family: "Montserrat", sans-serif;
+  font-family: var(--font-montserrat);
   font-weight: 700;
   font-style: normal;
   margin: 0;

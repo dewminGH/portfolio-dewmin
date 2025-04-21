@@ -5,3 +5,6 @@ export { default as PortfolioAbout } from "./portfolio-about";
 export { default as PortfolioBeyond } from "./portfolio-beyond";
 export { default as PortfolioNavWithCanvas } from "./portfolio-nav-with-canvas";
 export { default as PortfolioSite } from "./portfolio-site";
+
+// lazy
+export { default as LazyTechStack } from "./portfolio-tech-stack/LazyTechStack";

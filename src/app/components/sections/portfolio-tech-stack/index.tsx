@@ -45,6 +45,8 @@ const PortfolioTeachStack: React.FC = () => {
                 width={80}
                 height={80}
                 alt={`${icon.name} logo`}
+                fetchPriority="low"
+                loading="lazy"
               />
             </motion.div>
           ))}
